@@ -1,4 +1,33 @@
-# LocalWeatherApp
+
+![Logo]()
+
+
+# Local Weather App
+
+A brief description of what this project does and who it's for
+
+
+## Methodology
+- Kanban which is a popular methodogology that helps in achieving agile software development to account for change of priorities and features over time.
+## Features
+
+- Display current location weather information for the current day
+- Display forecast information for the current location
+- City search capability so that users can see weather information for other cities
+- Preferences pane to store the default city for the user
+
+
+## Screenshots
+
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+
+## Tech Stack
+
+**Client:** Angular, Material UI
+
+
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.3.
 
