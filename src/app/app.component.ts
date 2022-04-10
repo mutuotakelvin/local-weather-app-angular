@@ -8,7 +8,7 @@ import { Component } from '@angular/core'
       <span>WeatherMe</span>
     </mat-toolbar>
     <div fxLayoutAlign="center">
-      <div class="mat-caption">Your city, your forecast, right now!</div>
+      <div class="mat-caption vertical-margin">Your city, your forecast, right now!</div>
     </div>
     <div fxLayout="row">
       <div fxFlex></div>
