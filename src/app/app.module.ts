@@ -1,6 +1,8 @@
 import {HttpClientModule} from '@angular/common/http'
 import { NgModule } from '@angular/core'
 import { FlexLayoutModule } from '@angular/flex-layout'
+import { MatCardModule } from '@angular/material/card'
+import { MatToolbarModule } from "@angular/material/toolbar";
 import { BrowserModule } from '@angular/platform-browser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
@@ -9,8 +11,15 @@ import { CurrentWeatherComponent } from './current-weather/current-weather.compo
 
 @NgModule({
   declarations: [AppComponent, CurrentWeatherComponent],
-  imports: [BrowserModule,HttpClientModule, BrowserAnimationsModule,FlexLayoutModule],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    FlexLayoutModule,
+    MatToolbarModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
+
 })
 export class AppModule {}
