@@ -1,4 +1,6 @@
-.right
-{
+.right{
   text-align: right;
+}
+.no-margin{
+  margin-bottom: 0;
 }
