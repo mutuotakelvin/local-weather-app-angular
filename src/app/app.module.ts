@@ -17,6 +17,7 @@ import { CurrentWeatherComponent } from './current-weather/current-weather.compo
     BrowserAnimationsModule,
     FlexLayoutModule,
     MatToolbarModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent],
