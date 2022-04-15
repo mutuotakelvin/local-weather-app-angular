@@ -1,6 +1,7 @@
 import {HttpClientModule} from '@angular/common/http'
 import { NgModule } from '@angular/core'
 import { FlexLayoutModule } from '@angular/flex-layout'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card'
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { BrowserModule } from '@angular/platform-browser'
@@ -17,7 +18,9 @@ import { CurrentWeatherComponent } from './current-weather/current-weather.compo
     BrowserAnimationsModule,
     FlexLayoutModule,
     MatToolbarModule,
-    MatCardModule
+    MatCardModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

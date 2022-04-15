@@ -11,8 +11,9 @@ TestBed.configureTestingModule({
 })
 describe('AppComponent', () => {
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
+    TestBed.configureTestingModule({
       declarations: [AppComponent],
+      imports:[...,MaterialModule],
     }).compileComponents()
   })
 
@@ -26,7 +27,7 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent)
     fixture.detectChanges()
     const compiled = fixture.nativeElement as HTMLElement
-    expect(compiled.querySelector('h1')?.textContent).toContain(
+    expect(compiled.querySelector('span')?.textContent).toContain(
       'WeatherMe'
     )
   })
