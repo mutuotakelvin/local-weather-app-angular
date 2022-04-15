@@ -26,6 +26,9 @@ interface ICurrentWeatherData {
 export class WeatherService implements IWeatherService {
 
   constructor(private httpClient: HttpClient) { }
+  getCurrentWeatherByCoords(coords: GeolocationCoordinates): Observable<ICurrentWeather> {
+    throw new Error('Method not implemented.');
+  }
 
   getCurrentWeather(
     search:string | number,
@@ -39,14 +42,26 @@ export class WeatherService implements IWeatherService {
       uriParams = uriParams.set('zip','search')
     }
     uriParams = uriParams.set('appid',environment.appId)
-    return this.httpClient
-      .get<ICurrentWeatherData>(
-    `${environment.baseUrl}api.openweathermap.org/data/2.5/weather`,
-        { params: uriParams }
-      )
-      .pipe(map(data => this.transformToICurrentWeather(data)))
+    return this.getCurrentWeatherHelper(uriParams )
   }
 
+  private getCurrentWeatherHelper(uriParams: HttpParams):Observable<ICurrentWeather>{
+    uriParams = uriParams.set('appid',environment.appId)
+    return this.httpClient
+    .get<ICurrentWeatherData>(
+      `${environment.baseUrl}api.openweathermap.org/data/2.5/weather`,
+      {params:uriParams}
+    )
+    .pipe(map(data => this.transformToICurrentWeather(data)))
+  }
+
+  private getWeatherByCoords(coords:GeolocationCoordinates):Observable<ICurrentWeather>{
+    const uriParams = new HttpParams()
+    .set('lat',coords.latitude.toString())
+    .set('lon',coords.longitude.toString())
+    return this.getCurrentWeatherHelper(uriParams)
+
+  }
   private transformToICurrentWeather(data:ICurrentWeatherData):ICurrentWeather{
     return{
       city:data.name,
@@ -68,7 +83,8 @@ export class WeatherService implements IWeatherService {
 
 export interface IWeatherService {
   getCurrentWeather(
-    city:string,
+    search:string | number,
     country:string
   ): Observable<ICurrentWeather>
+  getCurrentWeatherByCoords(coords:GeolocationCoordinates):Observable<ICurrentWeather>
   }
