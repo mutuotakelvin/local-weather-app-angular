@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms'
 
+import { WeatherService } from '../weather/weather.service';
+
 @Component({
   selector: 'app-city-search',
   templateUrl: './city-search.component.html',
@@ -9,9 +11,10 @@ import { FormControl } from '@angular/forms'
 export class CitySearchComponent implements OnInit {
   search = new FormControl()
 
-  constructor() { }
+  constructor( private weatherService: WeatherService) { }
 
   ngOnInit(): void {
+    this.search.valueChanges.subscribe()
   }
 
 }
