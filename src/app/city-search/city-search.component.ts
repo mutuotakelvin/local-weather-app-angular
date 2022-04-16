@@ -19,7 +19,7 @@ export class CitySearchComponent implements OnInit {
     .pipe(debounceTime(1000))
     .subscribe(
       (searchValue: string)=> {
-        if(searchValue){
+        if(!this.search.invalid){
           const userInput = searchValue.split(',').map(s => s.trim())
         this.weatherService.getCurrentWeather(
           userInput[0],
