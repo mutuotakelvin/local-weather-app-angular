@@ -14,7 +14,18 @@ export class CitySearchComponent implements OnInit {
   constructor( private weatherService: WeatherService) { }
 
   ngOnInit(): void {
-    this.search.valueChanges.subscribe()
+    this.search.valueChanges
+    .subscribe(
+      (searchValue: string)=> {
+        if(searchValue){
+          const userInput = searchValue.split(',').map(s => s.trim())
+        this.weatherService.getCurrentWeather(
+          userInput[0],
+          userInput.length > 1 ? userInput[1] : ''
+        ).subscribe(data => (console.log(data)))
+        }
+      }
+    )
   }
 
 }
