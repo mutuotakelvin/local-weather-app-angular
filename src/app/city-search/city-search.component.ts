@@ -10,7 +10,7 @@ import { WeatherService } from '../weather/weather.service';
   styleUrls: ['./city-search.component.css']
 })
 export class CitySearchComponent implements OnInit {
-  search = new FormControl()
+  search = new FormControl('',[Validators.minLength(2)])
 
   constructor( private weatherService: WeatherService) { }
 
